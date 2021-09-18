@@ -2,5 +2,6 @@ from django.shortcuts import render
 from .models import Blog
 
 def all_blogs(request):
-    blogs = Blog.objects.all()
+    # give a total of 5 objs and order by date in decending order, ( give most recent articles )
+    blogs = Blog.objects.all().order_by('-date')[:5]
     return render(request, 'blog/all_blogs.html', {'blogs': blogs})
