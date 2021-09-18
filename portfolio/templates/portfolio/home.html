@@ -1,1 +1,12 @@
-hello from home.html
+<h1>oFRoot</h1>
+
+{% for project in projects %}
+
+<h2> {{ project.title }} </h2>
+<p>{{ projecct.description }}</p>
+<img src="{{ project.image.url }}">
+{% if project.url %}
+<a href="{{ project.url }}">Link to Project</a>
+{% endif %}
+{% endfor %}
+
