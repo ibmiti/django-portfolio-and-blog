@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+# building dynamic routes
+# below becomes : http://127.0.0.1:8001/media/portfolio/images/Screen_Shot_2021-06-20_at_8.52.28_AM_ttXWiMj.png
+#  the image name ( 'Screen_shot...' ) comes from the uploaded image
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
