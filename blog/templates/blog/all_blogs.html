@@ -8,6 +8,6 @@ Hello Blog
     </a>
     <h5>{{ blog.date|date:'M d Y'|upper }}</h5>
 
-    <p>{{ blog.description|truncatechars:100 }}</p>
+    <p>{{ blog.description|striptags|truncatechars:100 }}</p>
 {% endfor %}
 
